@@ -3,12 +3,11 @@
   hosts: all
   become: true
 
-  Task:
+  Tasks:
    - name: docker container run
      docker_container:
       name: web
       image: nginx:latest
-      tag: latest
       tty: true
       state: started
       ports:
