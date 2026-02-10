@@ -2,7 +2,7 @@ pipeline {
   agent { label "${LABEL_NAME}" }
 
   stages {
-    stage('code') {
+    stage('CODE') {
       steps {
         git url:"https://github.com/dalpratap2027/ansiblejenkins.git", branch: "main"
       }
@@ -12,7 +12,7 @@ pipeline {
         ansiblePlaybook(
           playbook: 'ansible/deploy.yml',
           inventory: 'ansible/hosts.ini',
-          credentialsId:'${SSH_KEY}'
+          credentialsId: '${SSH_KEY}'
         )
       }
     }
